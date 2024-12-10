@@ -25,3 +25,17 @@ helm template ./helm-kustomize --set image.tag=0.1.0 --post-renderer ./kustomize
 helm upgrade hk ./helm-kustomize --set image.tag=0.1.0 --install --post-renderer ./kustomize.sh
 ```
 
+## Deploy Helm with ArgoCD
+
+```
+kubectl config set-context --current --namespace=argocd
+kubectl create ns my-app
+argocd app create helm --repo https://github.com/extravio/ArgoCD.git --path kustomize/helm --dest-server https://kubernetes.default.svc --dest-namespace my-app
+# Get App status
+argocd app get helm
+# Sync App
+argocd app get helm
+# Delete App
+argocd app delete guestbook 
+```
+
