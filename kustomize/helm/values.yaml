@@ -1,0 +1,4 @@
+image:
+  repository: ghcr.io/trstringer/httpbin2
+  pullPolicy: Always
+  tag: latest

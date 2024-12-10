@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpbin2
+  namespace: my-app
+spec:
+  containers:
+    - name: httpbin2
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
+      imagePullPolicy: {{ .Values.image.pullPolicy }}
+      command: ["/httpbin2"]
