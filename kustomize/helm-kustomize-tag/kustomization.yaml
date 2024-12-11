@@ -1,0 +1,13 @@
+namespace: my-app
+
+resources:
+  - resources.yaml
+
+patches:
+- target: 
+    kind: Pod
+    name: ".*"
+  patch: |
+    - op: add
+      path: /spec/containers/0/image
+      value: "ghcr.io/trstringer/httpbin2:0.1.0"
