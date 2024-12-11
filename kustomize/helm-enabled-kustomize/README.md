@@ -14,6 +14,27 @@ Issues:
 
 
 
+Convert 
+
+```
+ configManagementPlugins: |
+    - name: kustomized-helm
+      init:
+        command: ["/bin/sh", "-c"]
+        args: ["helm dependency build"]
+      generate:
+        command: [sh, -c]
+        args: ["helm template --release-name release-name . > all.yaml && kustomize build"]
+```
+
+to a [config file](https://argo-cd.readthedocs.io/en/stable/operator-manual/config-management-plugins/#convert-the-configmap-entry-into-a-config-file)
+
+
+Customize argocd-cm ConfigMap 
+key: `kustomize.buildOptions`
+value: `--enable-helm`
+
+
 ## Helm
 
 ```
