@@ -46,6 +46,10 @@ helm template . --post-renderer ./kustomize.sh --debug > resources.kustomized.ya
 ## Deploy Helm with ArgoCD
 
 ```
+# App creation (path: helm-enabled-kustomize)
+argocd app create helm --repo https://github.com/extravio/ArgoCD.git --path kustomize/helm-enabled-kustomize --revision dev --dest-server https://kubernetes.default.svc --dest-namespace my-app --config-management-plugin kustomized-helm
+
+
 # App creation (path: helm)
 argocd app create helm --repo https://github.com/extravio/ArgoCD.git --path kustomize/helm --dest-server https://kubernetes.default.svc --dest-namespace my-app
 # Get App status
@@ -53,7 +57,7 @@ argocd app get helm
 # Update Target Revision (master -> dev)
 argocd app patch helm --patch '{"spec": { "source": { "targetRevision": "dev" } }}' --type merge
 # Edit App (path: helm-kustomize-tag)
-argocd app patch helm --patch='[{"op": "replace", "path": "/spec/source/path", "value": "kustomize/helm-kustomize-tag"}]' --type json
+argocd app patch helm --patch='[{"op": "replace", "path": "/spec/source/path", "value": "kustomize/helm-enabled-kustomize"}]' --type json
 
 # Sync App
 argocd app get helm
