@@ -6,7 +6,7 @@
 
 ```
 # App creation (path: helm-enabled-kustomize)
-argocd app create helm --repo https://github.com/extravio/ArgoCD.git --path kustomize/helm-hello-world --revision dev --dest-server https://kubernetes.default.svc --dest-namespace my-app --config-management-plugin kustomize-helm-enable
+argocd app create helm --repo https://github.com/extravio/ArgoCD.git --path kustomize/helm-hello-world --revision dev --dest-server https://kubernetes.default.svc --dest-namespace my-app --config-management-plugin kustomize-helm-enabled
 
 
 # App creation (path: helm)

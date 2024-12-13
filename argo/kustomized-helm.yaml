@@ -8,9 +8,6 @@ data:
         command: [sh, -c]
         args: ["helm template --release-name release-name . > all.yaml && kustomize build --enable-helm"]
     - name: kustomize-helm-enabled
-      init:
-        command: ["/bin/sh", "-c"]
-        args: ["helm dependency build"]
       generate:
         command: [sh, -c]
         args: ["kustomize build --enable-helm"]
