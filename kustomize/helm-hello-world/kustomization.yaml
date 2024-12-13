@@ -4,11 +4,11 @@ helmCharts:
   repo: https://helm.github.io/examples
   # releaseName: helm-kustomize
   # includeCRDs: false
-  # valuesInline: {
-  #   repository: "ghcr.io/trstringer/httpbin2",
-  #   pullPolicy: "Always",
-  #   tag: "latest"
-  # }
+  valuesInline: {
+    image: {
+      tag: "1.15.0"
+    }
+  }
 
 
 # namespace: my-app
