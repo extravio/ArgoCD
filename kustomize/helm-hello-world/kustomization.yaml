@@ -1,0 +1,26 @@
+helmCharts:
+- name: hello-world
+  # version: 0.1.0
+  repo: https://helm.github.io/examples
+  # releaseName: helm-kustomize
+  # includeCRDs: false
+  # valuesInline: {
+  #   repository: "ghcr.io/trstringer/httpbin2",
+  #   pullPolicy: "Always",
+  #   tag: "latest"
+  # }
+
+
+# namespace: my-app
+
+# resources:
+#   - resources.yaml
+
+# patches:
+# - target: 
+#     kind: Pod
+#     name: ".*"
+#   patch: |
+#     - op: add
+#       path: /spec/containers/0/image
+#       value: "ghcr.io/trstringer/httpbin2:0.1.0"
